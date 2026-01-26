@@ -1,6 +1,6 @@
 /**
- * Filter feature which is built on top of the search feature, but hides non
- * matching items that are not the matching item itself or it's children.
+ * Filter feature which is built on top of the search feature, but hides items
+ * that are not the matching item itself or it's children.
  */
 
 import type { FeatureImplementation } from "@headless-tree/core";
@@ -150,76 +150,10 @@ export const filterFeature: FeatureImplementation = {
       //   };
       // });
     },
-
-    // const queryString = tree.getState().search;
-
-    // if (!queryString) return;
-
-    // // const visibleIds = [];
-    // //   const allItems = tree.getItems();
-    // const items = tree.getItems();
-
-    // for (const item of items) {
-    //   if (item.isMatchingSearch()) {
-    //     // item.setIsFilteredVisible();
-
-    //     if (item.isFolder()) {
-    //       // item.expandAll();
-    //     }
-    //   } else {
-    //     // item.setIsFilteredHidden();
-    //   }
-    // }
-
-    // // tree
-    // //   .getItems()
-    // //   .filter((item) =>
-    // //     item.getItemName().toLowerCase().includes(queryString.toLowerCase()),
-    // //   ).forEach(item => );
-    // // for (const item of tree.getItems()) {
-    // // }
-    // // Direct name matches
-    // const matches = allItems.filter((item) =>
-    //   item.getItemName().toLowerCase().includes(queryString.toLowerCase()),
-    // );
-    // const ids = new Set<string>();
-    // /**
-    //  * Walks up the tree, adding all ancestor IDs of the given item.
-    //  * Ensures parent folders remain visible during search.
-    //  */
-    // const addParents = (item: any) => {
-    //   let current = item.getParent?.();
-    //   while (current) {
-    //     ids.add(current.getId());
-    //     current = current.getParent?.();
-    //   }
-    // };
-    // /**
-    //  * Recursively adds all descendant IDs of the given item ID.
-    //  * Ensures children of matching folders remain visible.
-    //  */
-    // const addChildren = (id: string) => {
-    //   for (const child of items[id]?.children ?? []) {
-    //     ids.add(child);
-    //     addChildren(child);
-    //   }
-    // };
-    // // Collect visible IDs: matches + ancestors + descendants
-    // for (const item of matches) {
-    //   ids.add(item.getId());
-    //   addParents(item);
-    //   addChildren(item.getId());
-    // }
-    // //   tree.getItems();
-    // //   tree.loadItemData;
-    // },
   },
 
   itemInstance: {
     getIsFilteredVisible: ({ tree, item }) => {
-      // console.log(tree.getSearchValue(), item.isMatchingSearch(), isChildOfFilteredItem(item));
-      // console.log(item.getItemName());
-      // debugger;
       item.isMatchingSearch();
       if (!tree.getSearchValue()) return true;
 
@@ -238,11 +172,6 @@ export const filterFeature: FeatureImplementation = {
     setIsFilteredHidden: ({ tree, item }) => {
       item.isFilteredVisible = false;
     },
-
-    // getItemMeta: ({ item, prev }) => ({
-    //   ...prev?.(),
-    //   myField: computeValue(item),
-    // }),
 
     /**
      * Checks is an item is filtered and visible,
