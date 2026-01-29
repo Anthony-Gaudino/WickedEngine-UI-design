@@ -10,20 +10,29 @@ interface EntitiesTreeItemProps {
 
 /**
  * Renders a single entity tree item.
- * 
+ *
  * @param item - The tree item to render.
  */
 export function EntitiesTreeItem({ item }: EntitiesTreeItemProps) {
+  const itemIcon = (() => {
+    if (item.getItemData().icon) return item.getItemData().icon;
+
+    if (item.isFolder()) {
+      return item.isExpanded() ? (
+        <FolderOpenIcon className="size-4 text-muted-foreground" />
+      ) : (
+        <FolderIcon className="size-4 text-muted-foreground" />
+      );
+    }
+
+    return null;
+  })();
+
   return (
     <TreeItem item={item} className="data-[visible=false]:hidden">
       <TreeItemLabel>
         <span className="flex items-center gap-2">
-          {item.isFolder() &&
-            (item.isExpanded() ? (
-              <FolderOpenIcon className="size-4 text-muted-foreground" />
-            ) : (
-              <FolderIcon className="size-4 text-muted-foreground" />
-            ))}
+          {itemIcon}
 
           {item.isRenaming() ? (
             <Input
