@@ -13,8 +13,17 @@ interface ItemIndentationProps {
  *
  * @returns The Tailwind classes to style the indentation.
  */
-const getIndentationClasses = (style: IndentStyle) => {
-  const classes: string[] = ["relative w-3 ml-4"];
+const getIndentationClasses = (
+  style: IndentStyle,
+  isFolder: boolean,
+  isLast: boolean,
+) => {
+  const indentationWidth = (() => {
+    if (!isLast) return "w-2";
+
+    return isFolder ? "w-2" : "w-7";
+  })();
+  const classes: string[] = ["relative ml-4", indentationWidth];
 
   switch (style.kind) {
     case "empty":
@@ -103,12 +112,17 @@ const getIndentationClasses = (style: IndentStyle) => {
  * @returns The indentation DIV elements.
  */
 export const ItemIndentation = ({ item }: ItemIndentationProps) => {
-  return item
-    .getIndentationTypeList()
-    .map((style, i) => (
-      <div
-        key={`${style.kind}-${i}`}
-        className={getIndentationClasses(style)}
-      />
-    ));
+  const indentationTypeList = item.getIndentationTypeList();
+  const length = indentationTypeList.length;
+
+  return indentationTypeList.map((style, i) => (
+    <div
+      key={`${style.kind}-${i}`}
+      className={getIndentationClasses(
+        style,
+        item.isFolder(),
+        i === length - 1,
+      )}
+    />
+  ));
 };
