@@ -12,7 +12,7 @@ interface EntitiesTreeViewProps {
 
 /**
  * Renders the entities tree view.
- * 
+ *
  * @param tree - The tree instance to render.
  * @param indent - The indentation size.
  */
@@ -22,16 +22,12 @@ export function EntitiesTreeView({ tree, indent }: EntitiesTreeViewProps) {
       <AssistiveTreeDescription tree={tree} />
 
       {tree.getItems().map((item) => {
-        if (item.getIsFilteredVisible()) {
-          return (
-            <div className="flex h-8" key={item.getId()}>
-              <ItemIndentation item={item} />
-              <EntitiesTreeItem item={item} />
-            </div>
-          );
-        }
-
-        return null;
+        return (
+          <div className="flex h-8" key={item.getId()}>
+            <ItemIndentation item={item} />
+            <EntitiesTreeItem item={item} />
+          </div>
+        );
       })}
       <TreeDragLine />
     </Tree>

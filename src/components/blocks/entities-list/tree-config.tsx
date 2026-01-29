@@ -1,6 +1,11 @@
 import type { Item } from "./types";
 
 /**
+ * Root item ID for the entities tree.
+ */
+export const rootItemId = "root";
+
+/**
  * Indentation size for each tree level in pixels.
  */
 export const indent = 20;
@@ -11,10 +16,15 @@ export const indent = 20;
 export const initialExpandedItems = [];
 
 /**
+ * Initially selected items IDs.
+ */
+export const initialSelectedItems = [];
+
+/**
  * Normalized list of entities.
  */
 export const initialItems: Record<string, Item> = {
-  root: {
+  [rootItemId]: {
     // Root element is mandatory for tree component!
     name: "Root",
     parentID: null,
@@ -274,7 +284,7 @@ export const initialItems: Record<string, Item> = {
     tagID: null,
   },
   spawn: {
-    name: "Spanw point",
+    name: "Spawn point",
     parentID: null,
     children: [],
     icon: <></>,
