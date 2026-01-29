@@ -15,13 +15,18 @@ interface EntitiesTreeItemProps {
  */
 export function EntitiesTreeItem({ item }: EntitiesTreeItemProps) {
   const itemIcon = (() => {
-    if (item.getItemData().icon) return item.getItemData().icon;
+    const iconSize = "size-5";
+    const itemData = item.getItemData();
+    const Icon = itemData.icon;
+    const iconColor = itemData.iconColor;
+
+    if (Icon) return <Icon className={`${iconSize} ${iconColor}`} />;
 
     if (item.isFolder()) {
       return item.isExpanded() ? (
-        <FolderOpenIcon className="size-4 text-muted-foreground" />
+        <FolderOpenIcon className={`${iconSize} text-amber-600`} />
       ) : (
-        <FolderIcon className="size-4 text-muted-foreground" />
+        <FolderIcon className={`${iconSize} text-amber-600`} />
       );
     }
 

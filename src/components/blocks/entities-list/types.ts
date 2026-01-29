@@ -1,4 +1,4 @@
-import type { ReactElement } from "react";
+import type { LucideIcon } from "lucide-react";
 
 /**
  * An entity tree item.
@@ -22,7 +22,7 @@ export interface Item {
   /**
    * Entity icon.
    */
-  icon: ReactElement;
+  icon: LucideIcon | undefined;
 
   /**
    * Entity icon color.
