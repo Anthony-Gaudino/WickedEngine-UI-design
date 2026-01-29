@@ -30,7 +30,7 @@ export function EntitiesTreeItem({ item }: EntitiesTreeItemProps) {
 
   return (
     <TreeItem item={item} className="data-[visible=false]:hidden">
-      <TreeItemLabel>
+      <TreeItemLabel className="not-in-data-[folder=true]:ps-2">
         <span className="flex items-center gap-2">
           {itemIcon}
 
