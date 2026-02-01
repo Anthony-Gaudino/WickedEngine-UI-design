@@ -7,6 +7,7 @@ import {
   GitBranchPlus,
   GitCommitVertical,
   GitGraph,
+  LogOut,
   Plus,
   Settings,
   Trash,
@@ -16,6 +17,7 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarSeparator,
+  MenubarShortcut,
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
@@ -84,6 +86,13 @@ export const ProjectMenu = () => {
             </MenubarItem>
           </MenubarSubContent>
         </MenubarSub>
+
+        <MenubarSeparator />
+
+        <MenubarItem variant="destructive">
+          <LogOut /> Quit
+          <MenubarShortcut>Ctrl+Q</MenubarShortcut>
+        </MenubarItem>
       </MenubarContent>
     </MenubarMenu>
   );

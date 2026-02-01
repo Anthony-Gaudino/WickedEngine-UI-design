@@ -3,7 +3,6 @@ import {
   CircleX,
   FolderOpen,
   FolderOpenDot,
-  LogOut,
   Plus,
   RefreshCcw,
   Save,
@@ -99,13 +98,6 @@ export const SceneMenu = () => {
           <CircleX />
           Close Scene
           <MenubarShortcut>Ctrl+Shift+W</MenubarShortcut>
-        </MenubarItem>
-
-        <MenubarSeparator />
-
-        <MenubarItem>
-          <LogOut /> Quit
-          <MenubarShortcut>Ctrl+Q</MenubarShortcut>
         </MenubarItem>
       </MenubarContent>
     </MenubarMenu>
