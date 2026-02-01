@@ -1,6 +1,7 @@
 import { Menubar } from "@/components/ui/menubar";
 import { EditMenu } from "./edit-menu";
 import { HelpMenu } from "./help-menu";
+import { ProjectMenu } from "./project-menu";
 import { SceneMenu } from "./scene-menu";
 import { ScriptControls } from "./script-controls";
 
@@ -12,6 +13,7 @@ export const MenuBar = () => {
     <Menubar className="rounded-none border-x-0">
       <div className="flex items-center justify-between flex-1">
         <div className="flex items-center gap-2">
+          <ProjectMenu />
           <SceneMenu />
           <EditMenu />
           <HelpMenu />
