@@ -94,7 +94,7 @@ export const SceneMenu = () => {
           <MenubarShortcut>Ctrl+Y</MenubarShortcut>
         </MenubarItem>
 
-        <MenubarItem>
+        <MenubarItem variant="destructive">
           <CircleX />
           Close Scene
           <MenubarShortcut>Ctrl+Shift+W</MenubarShortcut>

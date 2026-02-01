@@ -28,7 +28,7 @@ export const EditMenu = () => {
 
         <MenubarSeparator />
 
-        <MenubarItem>
+        <MenubarItem variant="destructive">
           <CircleX /> Delete Selected
           <MenubarShortcut>Del</MenubarShortcut>
         </MenubarItem>
