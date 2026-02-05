@@ -16,9 +16,9 @@ interface Props {
 
 export const WorkspacePanel = ({ activeTab, onTabChange }: Props) => {
   return (
-    <aside>
+    <aside className="flex-1">
       <Tabs defaultValue="entities">
-        <TabsList>
+        <TabsList className="w-full">
           <TabsTrigger value="entities">Entities</TabsTrigger>
           <TabsTrigger value="components">Components</TabsTrigger>
           <TabsTrigger value="tool">Tool</TabsTrigger>
