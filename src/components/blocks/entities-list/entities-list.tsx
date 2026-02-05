@@ -10,8 +10,14 @@ import {
   type TreeInstance,
 } from "@headless-tree/core";
 import { useTree } from "@headless-tree/react";
-import { FunnelX } from "lucide-react";
+import { FolderPlus, FunnelX, ListFilter, Plus } from "lucide-react";
 import { useMemo, useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { indentFeature } from "./custom-tree-features/indent/feature";
 import { EntitiesSearch } from "./entities-search";
 import { EntitiesTreeView } from "./entities-tree-view";
@@ -161,11 +167,39 @@ export default function EntitiesList() {
 
   return (
     <div className="flex h-full flex-col gap-2">
-      <EntitiesSearch
-        value={filterQueryString}
-        onChange={onFilterChange}
-        onClear={() => onFilterChange("")}
-      />
+      <div className="flex gap-2">
+        <EntitiesSearch
+          value={filterQueryString}
+          onChange={onFilterChange}
+          onClear={() => onFilterChange("")}
+        />
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button variant="ghost">
+              <Plus />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">Add entity</TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button variant="ghost">
+              <FolderPlus />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">Add folder</TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button variant="ghost">
+              <ListFilter />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">Filter</TooltipContent>
+        </Tooltip>
+      </div>
 
       {!hasFilterResults ? (
         <div className="flex flex-col items-center gap-2 py-10">
