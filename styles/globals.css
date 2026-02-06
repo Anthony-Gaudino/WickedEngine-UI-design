@@ -39,6 +39,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: Roboto, "Noto Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "Roboto Mono", "Noto Sans Mono", "Noto Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
 }
 
 :root {
@@ -111,6 +115,218 @@
 }
 
 @layer base {
+  /**
+   * ===========================================================================
+   * Roboto
+   * ===========================================================================
+   */
+  @font-face {
+    font-family: "Roboto";
+    src: url("@/assets/fonts/roboto/Roboto-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Roboto";
+    src: url("@/assets/fonts/roboto/Roboto-Italic-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+    @font-face {
+    font-family: "Roboto Mono";
+    src: url("@/assets/fonts/roboto-mono/RobotoMono-VariableFont_wght.ttf");
+    font-weight: 100 700;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Roboto Mono";
+    src: url("@/assets/fonts/roboto-mono/RobotoMono-Italic-VariableFont_wght.ttf");
+    font-weight: 100 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /**
+   * ===========================================================================
+   * Noto
+   * ===========================================================================
+   */
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/adlam/NotoSansAdlam-VariableFont_wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/arabic/NotoSansArabic-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/bengali/NotoSansBengali-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/devanagari/NotoSansDevanagari-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/ethiopic/NotoSansEthiopic-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/gujarati/NotoSansGujarati-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/gurmukhi/NotoSansGurmukhi-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/hebrew/NotoSansHebrew-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/hong-kong/NotoSansHK-VariableFont_wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/japanese/NotoSansJP-VariableFont_wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/kannada/NotoSansKannada-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/khmer/NotoSansKhmer-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/korean/NotoSansKR-VariableFont_wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/lao/NotoSansLao-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/malayalam/NotoSansMalayalam-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/myanmar/NotoSansMyanmar-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  /* Noto Sans base + italic */
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/noto-sans/NotoSans-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/noto-sans/NotoSans-Italic-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/simplified-chinese/NotoSansSC-VariableFont_wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/tamil/NotoSansTamil-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/telugu/NotoSansTelugu-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/thai/NotoSansThai-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Noto Sans";
+    src: url("@/assets/fonts/noto/traditional-chinese/NotoSansTC-VariableFont_wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  /* Mono */
+  @font-face {
+    font-family: "Noto Sans Mono";
+    src: url("@/assets/fonts/noto-mono/NotoSansThai-VariableFont_wdth,wght.ttf");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
