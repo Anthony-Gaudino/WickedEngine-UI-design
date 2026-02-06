@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import EntitiesList from "../entities-list/entities-list";
+import { EntityPanel } from "../entities-panel/entity-panel";
 
 // import { TabButton } from "./TabButton";
 
@@ -16,15 +16,15 @@ interface Props {
 
 export const WorkspacePanel = ({ activeTab, onTabChange }: Props) => {
   return (
-    <aside className="flex-1">
-      <Tabs defaultValue="entities">
+    <aside className="flex flex-1">
+      <Tabs className="flex-1" defaultValue="entities">
         <TabsList className="w-full">
           <TabsTrigger value="entities">Entities</TabsTrigger>
           <TabsTrigger value="components">Components</TabsTrigger>
           <TabsTrigger value="tool">Tool</TabsTrigger>
         </TabsList>
         <TabsContent value="entities">
-          <EntitiesList />
+          <EntityPanel />
         </TabsContent>
       </Tabs>
     </aside>
