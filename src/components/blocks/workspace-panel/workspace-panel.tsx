@@ -42,7 +42,7 @@ export const WorkspacePanel = ({
   const handleLayoutChanged = () => {};
 
   return (
-    <aside className="flex flex-col flex-1">
+    <aside className="flex flex-col flex-1 min-w-xs">
       <ResizablePanelGroup
         groupRef={panelGroupRef}
         orientation="vertical"
