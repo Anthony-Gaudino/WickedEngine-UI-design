@@ -1,32 +1,75 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { EntityPanel } from "../entities-panel/entity-panel";
+import { useGroupRef } from "react-resizable-panels";
+import { EntityPanel } from "@/components/blocks/entities-panel/entity-panel";
+import {
+  ResizableHandle,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
+import { CollapsibleTabPanel } from "./collapsible-tab-panel/collapsible-tab-panel";
+import type { Tabs } from "./types";
 
-// import { TabButton } from "./TabButton";
-
-const TABS = [
-  { id: "entities", label: "Entities" },
-  { id: "properties", label: "Components" },
-  { id: "settings", label: "Main Settings" },
+const TOP_PANEL_TABS: Tabs = [
+  { id: "entities", label: "Entities", Content: EntityPanel },
+  { id: "components", label: "Components", Content: EntityPanel },
+  { id: "settings", label: "Settings", Content: EntityPanel },
 ] as const;
 
-interface Props {
+const BOTTOM_PANEL_TABS: Tabs = [
+  { id: "file-system", label: "File system", Content: EntityPanel },
+  { id: "components", label: "Components", Content: EntityPanel },
+  { id: "settings", label: "Settings", Content: EntityPanel },
+] as const;
+
+interface WorkspacePanelProps {
   activeTab?: string;
   onTabChange?: (tab: string) => void;
 }
 
-export const WorkspacePanel = ({ activeTab, onTabChange }: Props) => {
+export const WorkspacePanel = ({
+  /*activeTab, onTabChange*/
+}: WorkspacePanelProps) => {
+  const panelGroupRef = useGroupRef();
+
+  /**
+   * Handles double click on the resize handle.
+   *
+   * When the resize handle is double clicked we divide the panels in the
+   * middle (50% height for each).
+   */
+  const handleHandleDoubleClick = () => {
+    panelGroupRef.current?.setLayout({ topPanel: 50, bottomPanel: 50 });
+  };
+
+  const handleLayoutChanged = () => {};
+
   return (
-    <aside className="flex flex-1">
-      <Tabs className="flex-1" defaultValue="entities">
-        <TabsList className="w-full">
-          <TabsTrigger value="entities">Entities</TabsTrigger>
-          <TabsTrigger value="components">Components</TabsTrigger>
-          <TabsTrigger value="tool">Tool</TabsTrigger>
-        </TabsList>
-        <TabsContent value="entities">
-          <EntityPanel />
-        </TabsContent>
-      </Tabs>
+    <aside className="flex flex-col flex-1">
+      <ResizablePanelGroup
+        groupRef={panelGroupRef}
+        orientation="vertical"
+        onLayoutChange={handleLayoutChanged}
+      >
+        <CollapsibleTabPanel
+          panelProps={{
+            id: "topPanel",
+            defaultSize: "50%",
+            minSize: 35,
+            collapsible: true,
+            collapsedSize: 35,
+          }}
+          tabs={TOP_PANEL_TABS}
+        />
+        <ResizableHandle withHandle onDoubleClick={handleHandleDoubleClick} />
+        <CollapsibleTabPanel
+          panelProps={{
+            id: "bottomPanel",
+            defaultSize: "50%",
+            minSize: 35,
+            collapsible: true,
+            collapsedSize: 35,
+          }}
+          tabs={BOTTOM_PANEL_TABS}
+        />
+      </ResizablePanelGroup>
     </aside>
   );
 };
